@@ -1,5 +1,6 @@
 import fetchCourses from './fetchCourses.js'
 import displayCourses from './displayCourses.js'
+import setCourse from './setCourse.js'
 
 const showCourses = async (url) => {
   //fetch courses
@@ -7,7 +8,9 @@ const showCourses = async (url) => {
 
   //display corses
   const section = await displayCourses(data)
-  console.log(section)
+  if (section) {
+    setCourse(section)
+  }
 }
 
 export default showCourses

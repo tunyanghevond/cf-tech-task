@@ -1,5 +1,5 @@
 import { showLoading } from './toggleLoading.js'
-const fetchCourses = async (url) => {
+const fetchUrl = async (url) => {
   showLoading()
   try {
     const response = await fetch(url)
@@ -10,4 +10,4 @@ const fetchCourses = async (url) => {
   }
 }
 
-export default fetchCourses
+export default fetchUrl

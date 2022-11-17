@@ -1,19 +1,25 @@
 import { hideLoading } from './toggleLoading.js'
 import get from './getElement.js'
-const displaySingleCourse = (course) => {
+const displaySingleCourse = (course, continentCode) => {
   hideLoading()
 
   const { description, start_dates, prices } = course
+
   const list = [
     {
       description,
       startDate: start_dates[0],
       nextStartDateOne: start_dates[1],
       nextStartDateTwo: start_dates[2],
-      priceAmount: prices[0].amount,
-      priceCurrency: prices[0].currency,
+      priceAmount: prices[1].amount,
+      priceCurrency: prices[1].currency,
     },
   ]
+
+  if (!continentCode === 'EU') {
+    list[0].priceAmount = prices[0].amount
+    list[0].priceCurrency = prices[0].currency
+  }
 
   const section = get('.single-course')
   const singleCourse = list
